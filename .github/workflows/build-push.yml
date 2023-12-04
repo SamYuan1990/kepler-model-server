@@ -36,15 +36,12 @@ jobs:
       if: ${{ (github.repository_owner == 'sustainable-computing-io') && (github.ref == 'refs/heads/main') }}
       uses: docker/login-action@v3
       with:
-          registry: quay.io/sustainable_computing_io
-          username: ${{ secrets.BOT_NAME }}
-          password: ${{ secrets.BOT_TOKEN }}      
+          registry: quay.io/sustainable_computing_io    
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         platforms: linux/amd64,linux/arm64,linux/s390x
-        push: true
         tags: quay.io/sustainable_computing_io/kepler_model_server_base:v0.7
         file: dockerfiles/Dockerfile.base
 
@@ -62,14 +59,11 @@ jobs:
       if: ${{ (github.repository_owner == 'sustainable-computing-io') && (github.ref == 'refs/heads/main') }}
       uses: docker/login-action@v3
       with:
-          registry: quay.io/sustainable_computing_io
-          username: ${{ secrets.BOT_NAME }}
-          password: ${{ secrets.BOT_TOKEN }}      
+          registry: quay.io/sustainable_computing_io   
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         platforms: linux/amd64,linux/arm64,linux/s390x
-        push: true
         tags: quay.io/sustainable_computing_io/kepler_model_server:latest,quay.io/sustainable_computing_io/kepler_model_server:v0.7
         file: dockerfiles/Dockerfile
