@@ -28,7 +28,10 @@ jobs:
         with:
           nuitka-version: main
           script-name: cmd/main.py
+          enable-plugins: no-qt
+          clang: true
           onefile: true
+          debug: true
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
