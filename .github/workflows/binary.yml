@@ -28,7 +28,6 @@ jobs:
         with:
           nuitka-version: main
           script-name: cmd/main.py
-          script-name: kasa_cli
           onefile: true
 
       - name: Upload Artifacts
